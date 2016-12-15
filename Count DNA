@@ -1,0 +1,17 @@
+#!/usr/bin/perl -w
+print "The name of DNA data: ";
+$dna = <STDIN>;
+chomp $dna;
+open my $FILE,'<',$dna or die "$0: failed to open input file '$dna': $!\n";
+@DNA = <$FILE>;
+close $FILE or warn "$0: failed to close input file '$dna': $!\n";
+$DNA = join('',@DNA);
+$DNA =~ s/\s//g;
+$a = ($DNA =~ tr/Aa//);
+$c = ($DNA =~ tr/Cc//);
+$g = ($DNA =~ tr/Gg//);
+$t = ($DNA =~ tr/Tt//);
+$bases = ($DNA =~ tr/ACGTacgt//);
+$nobase = (length $DNA) - $bases;
+print "A=$a,C=$c,G=$g,T=$t,Error=$nobase\n";
+exit;
