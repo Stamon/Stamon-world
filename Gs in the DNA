@@ -5,7 +5,7 @@ unless (@ARGV) {
 print $USAGE;
 exit;
 }
-my ($DNA) = $ARGV[0];
+my $DNA = $ARGV[0];
 my ($Gs) = countG($DNA);
 print "\n G has $Gs in the $DNA\n\n";
 exit;
